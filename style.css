@@ -1,19 +1,7 @@
-header{
+header {
     background-color: #e0f5de;
 }
 
-h1{
+h1 {
     text-align: center;
-}
-
-.col{
-    text-align: center;
-}
-
-form{
-    padding-left: 15%;
-}
-
-.card{
-    margin: 10% 20% 10% 20%;
 }
