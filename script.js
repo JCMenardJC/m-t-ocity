@@ -109,31 +109,31 @@ function weather(ville) {
             switch (ciel) {
                 case 'Clouds':
                     etatDuCiel.innerHTML = 'Nuageux';
-                    img.src = "/images/nuageux.jpg"
+                    img.src = "./images/nuageux.jpg"
                     break;
                 case 'Thunderstorm':
                     etatDuCiel.innerHTML = 'Orageux';
-                    img.src = "/images/orageux.jpg"
+                    img.src = "./images/orageux.jpg"
                     break;
                 case 'Drizzle':
                     etatDuCiel.innerHTML = 'Pluie fine';
-                    img.src = "/images/bruine.jpg"
+                    img.src = "./images/bruine.jpg"
                     break;
                 case 'Rain':
                     etatDuCiel.innerHTML = 'Pluvieux';
-                    img.src = "/images/pluie.jpg"
+                    img.src = "./images/pluie.jpg"
                     break;
                 case 'Snow':
                     etatDuCiel.innerHTML = 'Chute de neige';
-                    img.src = "/images/neige.jpg"
+                    img.src = "./images/neige.jpg"
                     break;
                 case 'Clear':
                     etatDuCiel.innerHTML = 'Ciel dégagé';
-                    img.src = "/images/degage.jpg"
+                    img.src = "./images/degage.jpg"
                     break;
                 default:
                     etatDuCiel.innerHTML = 'Brouillard';
-                    img.src = "/images/brouillard.jpg"
+                    img.src = "./images/brouillard.jpg"
                     break;
             }
 
