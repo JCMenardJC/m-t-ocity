@@ -15,7 +15,6 @@ btn.addEventListener('click', (event) => {
     return weather(textinput)
 });
 
-
 function weather(ville) {
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${ville},FRS&units=metric&appid=8ac3c3fb7a8376c6b0bf6e83078f35bf`)
@@ -32,83 +31,117 @@ function weather(ville) {
 
             const direction = data.wind.deg
 
-            switch (direction) {
+            let x = direction;
+            switch (true) {
 
-                case 0:
+                case x == 0:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Nord';
                     break;
 
-                case 0 < direction < 45:
+                case x < 45:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Nord/Nord/Est';
                     break;
 
-                case 45:
+                case x == 45:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Nord/Est';
                     break;
 
-                case 45 < direction < 90:
+                case x < 90:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Est/Nord/Est';
                     break;
 
-                case 90:
+                case x == 90:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Est';
                     break;
 
-                case 90 < direction < 135:
+                case x < 135:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Est/Sud/Est';
                     break;
 
-                case 135:
+                case x == 135:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Sud/Est';
                     break;
 
-                case 135 < direction < 180:
+                case x < 180:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Sud/Sud/Est';
                     break;
 
-                case 180:
+                case x == 180:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Sud';
                     break;
 
-                case 180 < direction < 225:
+                case x < 225:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Sud/Sud/Ouest';
                     break;
 
-                case 225:
+                case x == 225:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Sud/Ouest';
                     break;
 
-                case (data.wind.deg > 225 && data.wind.deg < 270):
+                case x < 270:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Ouest/Sud/Ouest';
                     break;
 
-                case 270:
+                case x == 270:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Ouest';
                     break;
 
-                case 270 < direction < 315:
+                case x < 315:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Ouest/Nord/Ouest';
                     break;
 
-                case 315:
+                case x == 315:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Nord/Ouest';
                     break;
 
-                case 315 < direction < 360:
+                case x < 360:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Nord/Nord/Ouest';
                     break;
 
                 default:
                     vent.innerHTML = 'Vent : ' + data.wind.speed + 'Km/h' + ' Direction inconnue';
+                    break;
 
             }
             const ciel = data.weather[0].main
             const img = document.getElementById('img')
-            if (ciel === 'Clouds') {
-                etatDuCiel.innerHTML = 'Nuageux';
-                img.src = "/images/cloudy-in-the-sky-landscape-wallpaper.jpg"
-            }
-        }
 
-        );
+            switch (ciel) {
+                case 'Clouds':
+                    etatDuCiel.innerHTML = 'Nuageux';
+                    img.src = "/images/nuageux.jpg"
+                    break;
+                case 'Thunderstorm':
+                    etatDuCiel.innerHTML = 'Orageux';
+                    img.src = "/images/orageux.jpg"
+                    break;
+                case 'Drizzle':
+                    etatDuCiel.innerHTML = 'Pluie fine';
+                    img.src = "/images/bruine.jpg"
+                    break;
+                case 'Rain':
+                    etatDuCiel.innerHTML = 'Pluvieux';
+                    img.src = "/images/pluie.jpg"
+                    break;
+                case 'Snow':
+                    etatDuCiel.innerHTML = 'Chute de neige';
+                    img.src = "/images/neige.jpg"
+                    break;
+                case 'Clear':
+                    etatDuCiel.innerHTML = 'Ciel dégagé';
+                    img.src = "/images/degage.jpg"
+                    break;
+                default:
+                    etatDuCiel.innerHTML = 'Brouillard';
+                    img.src = "/images/brouillard.jpg"
+                    break;
+            }
+
+        })
+        .catch(error => {
+            nomVille === undefined;
+            nomVille.innerHTML = 'Inconnue';
+        })
 }
+
+
