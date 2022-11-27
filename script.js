@@ -1,19 +1,28 @@
 const btn = document.getElementById('boutton');
 const input = document.getElementById('inputVille');
-const nomVille = document.getElementById('ville')
-const temperature = document.getElementById('temp')
-const ressentie = document.getElementById('res')
-const tMax = document.getElementById('max')
-const tMin = document.getElementById('min')
-const vent = document.getElementById('vent')
-const humidite = document.getElementById('humidite')
-const etatDuCiel = document.getElementById('ciel')
+const form = document.getElementById('form')
+const nomVille = document.getElementById('ville');
+const temperature = document.getElementById('temp');
+const ressentie = document.getElementById('res');
+const tMax = document.getElementById('max');
+const tMin = document.getElementById('min');
+const vent = document.getElementById('vent');
+const humidite = document.getElementById('humidite');
+const etatDuCiel = document.getElementById('ciel');
+
+
 
 btn.addEventListener('click', (event) => {
     event.preventDefault();
     let textinput = input.value;
     return weather(textinput)
 });
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let textinput = input.value;
+    return weather(textinput)
+})
 
 function weather(ville) {
 
